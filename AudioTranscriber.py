@@ -3,6 +3,7 @@ from pydub import AudioSegment
 from pydub.utils import make_chunks
 from Tokenise import extract_keywords
 from GrabImages import get_images
+from CreateVideo import create_video
 
 # Define constants
 AUDIO_FILE = "Dogs.wav"
@@ -79,5 +80,10 @@ def get_timestamps_for_keywords(audio_file):
 # Get timestamps for specified keywords
 word_timestamps = get_timestamps_for_keywords(AUDIO_FILE)
 
-for word in word_timestamps:
-    get_images(word[0])
+try:
+    for word in word_timestamps:
+        get_images(word[0])
+except Exception as e:
+    print("Error:", e)
+
+create_video(word_timestamps, AUDIO_FILE)
