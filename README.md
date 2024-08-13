@@ -15,6 +15,5 @@ Synopsis of what the program does:
 So far, the program has these issues:
 
 * The image scraping takes a really really long time
-* The chrome tabs used to scrape images don't close properly, which clutters memory
 * The image time stamps don't appear exactly where the word is said
 

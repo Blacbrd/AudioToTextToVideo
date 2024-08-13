@@ -17,9 +17,6 @@ from pathlib import Path
 import requests
 import random
 
-
-CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-
 # This ensures that the images are in the correct order
 number = 0
 
@@ -29,7 +26,7 @@ def kill_chrome():
     try:
         
         # This will terminate all Chrome processes
-        os.system(f"taskkill /f /im {CHROME_PATH}")
+        os.system(f"taskkill /f /im chrome.exe")
 
     except Exception as e:
         
