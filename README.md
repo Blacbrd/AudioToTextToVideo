@@ -12,3 +12,9 @@ Synopsis of what the program does:
 * Tokenised words are taken and a selenium web scraper searches for the images and downloads them
 * Once images are downloaded, they are compiled into a video with the audio
 
+So far, the program has these issues:
+
+* The image scraping takes a really really long time
+* The chrome tabs used to scrape images don't close properly, which clutters memory
+* The image time stamps don't appear exactly where the word is said
+
