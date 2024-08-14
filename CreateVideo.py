@@ -24,6 +24,7 @@ def create_video(word_timestamps, audio):
 
     all_image_segments = []
     
+    print(word_timestamps)
     # Pre-handles all the durations of the image segments
     durations = [
         word_timestamps[i+1][1] - word_timestamps[i][1]
@@ -46,13 +47,17 @@ def create_video(word_timestamps, audio):
 
     print(first_duration)
     
-    last_image_number = 2
+    last_image_number = 1
 
     # Handle the rest of the images, excluding the last one
-    for i in range(1, len(durations_sec) - 1):
+    for i in range(1, len(durations_sec)):
+        print("You are inside")
         image_segment = ImageClip(f"{IMAGE_FOLDER}{i}_{word_timestamps[i][0]}.jpg").set_duration(durations_sec[i])
         all_image_segments.append(image_segment)
         last_image_number += 1
+
+        print(f"{IMAGE_FOLDER}{i}_{word_timestamps[i][0]}.jpg")
+        print(last_image_number)
     
     # How long the final image should last
     last_duration = (get_audio_duration(audio) - word_timestamps[last_image_number][1]) / 1000
@@ -70,7 +75,7 @@ def create_video(word_timestamps, audio):
     
     try:
         # Write the final video file
-        video.write_videofile("test_video.mp4", threads=16, fps=10)
+        video.write_videofile("test_video.mp4", threads=16, fps=24)
     
     except Exception as e:
 

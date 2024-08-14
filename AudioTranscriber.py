@@ -70,6 +70,13 @@ def get_timestamps_for_keywords(audio_file):
                 print(f"Error with the speech recognition service: {e}")
                 return
 
+    
+    # Makes sure that the time stamps are in the correct order
+    word_timestamps = sorted(word_timestamps, key= lambda x: x[1])
+
+    # Removes duplicates
+    word_timestamps = list(dict.fromkeys(word_timestamps))
+
     # Output the results
     print("\nTimestamps for specified keywords:")
     for word, timestamp in word_timestamps:
@@ -80,10 +87,15 @@ def get_timestamps_for_keywords(audio_file):
 # Get timestamps for specified keywords
 word_timestamps = get_timestamps_for_keywords(AUDIO_FILE)
 
-try:
-    for word in word_timestamps:
-        get_images(word[0])
-except Exception as e:
-    print("Error:", e)
+# Get images from web
+# try:
 
+#     for word in word_timestamps:
+#         get_images(word[0])
+
+# except Exception as e:
+
+#     print("Error:", e)
+
+# Create the video
 create_video(word_timestamps, AUDIO_FILE)

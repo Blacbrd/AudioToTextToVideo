@@ -105,7 +105,7 @@ def get_images(lead):
         try:
             # Wait for the full-size image to load
             full_image = wait.until(
-                EC.presence_of_element_located((By.XPATH, "//img[@class='sFlh5c pT0Scc iPVvYb' and @src and contains(@src, 'http')]"))
+                EC.presence_of_element_located((By.XPATH, "//img[@class='sFlh5c FyHeAf iPVvYb' and @src and contains(@src, 'http')]"))
             )
         
         except:
